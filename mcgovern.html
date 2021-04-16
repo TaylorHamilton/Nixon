@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nixon Vote</title>
+        <link rel="stylesheet" href="index.css">
+
+        <style>
+    #vote {
+      width: 1325px;
+      height: 550px;
+      border: 10px solid black;
+      background-color: white;
+      color: black;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      margin: auto;
+      z-index: 99;
+    }
+
+    #pointer {
+      position: absolute;
+      right: 625px;
+      top: 400px;
+      width: 80px;
+      height: 80px;
+      transition: all .01s;
+      z-index: 98;
+    }
+    #mdoorback{
+        position: relative;
+        width:60px;
+        height: 60px;
+        margin-bottom: 200px;
+        float: right;
+        z-index: 100;
+    }
+    #info{
+        margin-left: 550px;
+    }
+  </style>
+</head>
+
+    <body style="height:600px">
+        <h1 id="info">Vote for McGovern</h1>
+        <div id="vote">
+            <!-- Typed -->
+            <div class="heading">
+                <h3>
+                    <span class="text-slider-items">
+                       
+                        Welcome to McGovern's voting room, to enter your vote for McGovern, stand on the vote button.
+                    </span>
+                    <strong class="text-slider"></strong>
+
+                </h3>
+                <a href="index.html"
+                onMouseOver="parent.location='index.html'" ;><img src="black.jpg"
+                    id="mdoorback"></a>
+            </div>
+            <!-- End Typed -->
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAhFBMVEX///8HAADixcQvAADfw8POm5oAAADDjo8qAAClV1lYLC0nAAC4cnCbx8vu4eFnl5ssAABWa5ViYmKmpqYgKTpEVHVAUG+fvPeOptVugKacst+7z/h4k8eOquO0yviHp+dNZJPf6Pnt8fuJrfZfe7TN1OLG1vnU1dezxezj4+OzwNzv7++AfrVzAAADJUlEQVR4nO2ZC3OiMBRG3ZWVXVe09qV9V/uw7f7//7debzMBlJpQUbxzzkwlEEy+07kR0E4HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFpGd0no0VZjQETDborc7Vb3tRAjIuWw3a47Ujx2yIxBmBIp6hQ5Eg0zIsWwxaI6usIyJFIspW09rcSIyHrYapFD5tyKGRGHi+oj++hHIyGYEvGtYjEhUofeJ/VHyIctL/rvJIvEkMj5+cXFd2VagCGRy8vJZDq9ujpyGUMivd719c2S6fT29ohlzIiIyt3d/f3Nzf2Sh4fHxxCVkxXS+r1Cj+bbuqetvyuayF7AkEivN5vN57OZyDw9PT+HiLiWhv36VSW8YkOYERGVlxfZvr5OJiEa66XlYvu29q6f0yiGRHq9xWI+f3sbj0VjsXh/l+M/SuTf42NJ4bilXG7nX/e03E2IiMp4/PGhGv+WrEuUZXyxlAPnVTZJIRImIipumbvQv0psKrGWYUZEVbTlJH5uwMkcNuuXmBFxVEsUZeqNvMd/gxGR7Rp1VaovrY1gRCRMo46KnN3vp2mSpGm/37iKKZEQDSFeJE2Hw05nONyDihGR8MKKLS4trGSJ7CUJIuHThWrEFZcWlohIcSWJ7DWoYkQkrrDiikvOSz4ZDkVE/hAJE/GPT+taxb5YEVFQZOE3VlzmRHRwjbu+vPN9cSJpKhdD0ZALomwRCRGRcGEi7suI0LH1llE1tIXI9skGA7+cncimtooMBnGlpTcmTgORsOnKItV7sTeNyRqIhEyXLy7/Yay9xQtieGE5kTT9s2IvpWVCxBVXlo1GWaY3KMXSEhXXGxNjU2k1/kRiRmQwyDIJW3Xzrr0xheUfrFxRIRKnIqWTZVUi0jsaxYVQEVnsTkXaiIRP6hd7GV3ssRFURKKLioJI3LQis+lRVyXq/KSgwWUr1BklGjMi/kcZuWHx6EduvQDunaen/gK7+9yV0x69SH7qMt8br9NRlV0mDZrYgIiffFfFoCOcnSHSFkTAgIYhEb/gjx4zIqJy6AQ7wowIAAAAAAAAAAAAAAAAAAAAAAAAAAC0hv8brklB/BzBBAAAAABJRU5ErkJggg=="id="pointer">
+        </div>
+
+        <script src="index.js"></script>
+        <script src="./typed.js-master/lib/typed.min.js"></script>
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+    vote.onmousemove = function(event) {
+
+      let fieldCoords = this.getBoundingClientRect();
+
+      let pointerCoords = {
+        top: event.clientY - fieldCoords.top - vote.clientTop - pointer.clientHeight / 2,
+        left: event.clientX - fieldCoords.left - vote.clientLeft - pointer.clientWidth / 2
+      };
+
+      if (pointerCoords.top < 0) ballCoords.top = 0;
+
+      if (pointerCoords.left < 0) ballCoords.left = 0;
+
+
+      if (pointerCoords.left + pointer.clientWidth > vote.clientWidth) {
+        pointerCoords.left = vote.clientWidth - pointer.clientWidth;
+      }
+
+      if (pointerCoords.top + pointer.clientHeight > vote.clientHeight) {
+        pointerCoords.top = vote.clientHeight - pointer.clientHeight;
+      }
+
+      pointer.style.left = pointerCoords.left + 'px';
+      pointer.style.top = pointerCoords.top + 'px';
+    }
+  </script>
+        <!-- Typed JS -->
+        <script>
+    if ($(".text-slider").length == 1) {
+          
+        var typed_strings = 
+            $(".text-slider-items").text();
+
+        var typed = new Typed(".text-slider", {
+            strings: typed_strings.split(", "),
+            typeSpeed: 60,
+            loop: true,
+            backDelay: 2000,
+            backSpeed: 27,
+        });
+    }
+</script>
+    </body>
+</html>
