@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="index.css">
 
   <style>
-    #vote {
+    #v {
       scroll-behavior: auto;
       background-image: url('../pics/infoR.png');
       width: 1325px;
@@ -56,7 +56,7 @@
 
 <body style="height:600px">
   <h1 id="info">Information Center</h1>
-  <div id="vote">
+  <div id="v">
     <!-- Typed -->
     <div class="heading">
       <h3 id="typed">
@@ -80,20 +80,20 @@
   <script src="./typed.js-master/lib/typed.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
-    
-    let page = document.getElementById('vote')
+
+    let page = document.getElementById('v')
 
     page.addEventListener('contextmenu', e => {
       e.preventDefault();
     });
 
-    vote.onmousemove = function (event) {
+    v.onmousemove = function (event) {
 
       let fieldCoords = this.getBoundingClientRect();
 
       let pointerCoords = {
-        top: event.clientY - fieldCoords.top - vote.clientTop - pointer.clientHeight / 2,
-        left: event.clientX - fieldCoords.left - vote.clientLeft - pointer.clientWidth / 2
+        top: event.clientY - fieldCoords.top - v.clientTop - pointer.clientHeight / 2,
+        left: event.clientX - fieldCoords.left - v.clientLeft - pointer.clientWidth / 2
       };
 
       if (pointerCoords.top < 0) ballCoords.top = 0;
@@ -101,12 +101,12 @@
       if (pointerCoords.left < 0) ballCoords.left = 0;
 
 
-      if (pointerCoords.left + pointer.clientWidth > vote.clientWidth) {
-        pointerCoords.left = vote.clientWidth - pointer.clientWidth;
+      if (pointerCoords.left + pointer.clientWidth > v.clientWidth) {
+        pointerCoords.left = v.clientWidth - pointer.clientWidth;
       }
 
-      if (pointerCoords.top + pointer.clientHeight > vote.clientHeight) {
-        pointerCoords.top = vote.clientHeight - pointer.clientHeight;
+      if (pointerCoords.top + pointer.clientHeight > v.clientHeight) {
+        pointerCoords.top = v.clientHeight - pointer.clientHeight;
       }
 
       pointer.style.left = pointerCoords.left + 'px';

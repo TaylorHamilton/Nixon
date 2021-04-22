@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="index.css">
 
     <style>
-        #vote {
+        #v {
             scroll-behavior: auto;
             background-image: url('../pics/main.png');
             width: 1325px;
@@ -80,7 +80,7 @@
 <body style="height:600px">
     <h1 id="info">1972 United States presidential election</h1>
     <h5 id="info">(Binding of Isaac: Edition)</h5>
-    <div id="vote">
+    <div id="v">
         <a href="nixon.html" onMouseOver="parent.location='nixon.html'" ;><img src="black.jpg" id="ndoor"></a>
         <a href="mcgovern.html" onMouseOver="parent.location='mcgovern.html'" ;><img src="black.jpg" id="mdoor"></a>
         <a href="info.html" onMouseOver="parent.location='info.html'" ;><img src="black.jpg" id="door"></a>
@@ -102,21 +102,21 @@
     <script src="./typed.js-master/lib/typed.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        
-        let page = document.getElementById('vote')
-        
-            page.addEventListener('contextmenu', e => {
-            e.preventDefault();
-            });
-        
 
-        vote.onmousemove = function (event) {
+        let page = document.getElementById('v')
+
+        page.addEventListener('contextmenu', e => {
+            e.preventDefault();
+        });
+
+
+        v.onmousemove = function (event) {
 
             let fieldCoords = this.getBoundingClientRect();
 
             let pointerCoords = {
-                top: event.clientY - fieldCoords.top - vote.clientTop - pointer.clientHeight / 2,
-                left: event.clientX - fieldCoords.left - vote.clientLeft - pointer.clientWidth / 2
+                top: event.clientY - fieldCoords.top - v.clientTop - pointer.clientHeight / 2,
+                left: event.clientX - fieldCoords.left - v.clientLeft - pointer.clientWidth / 2
             };
 
             if (pointerCoords.top < 0) ballCoords.top = 0;
@@ -124,12 +124,12 @@
             if (pointerCoords.left < 0) ballCoords.left = 0;
 
 
-            if (pointerCoords.left + pointer.clientWidth > vote.clientWidth) {
-                pointerCoords.left = vote.clientWidth - pointer.clientWidth;
+            if (pointerCoords.left + pointer.clientWidth > v.clientWidth) {
+                pointerCoords.left = v.clientWidth - pointer.clientWidth;
             }
 
-            if (pointerCoords.top + pointer.clientHeight > vote.clientHeight) {
-                pointerCoords.top = vote.clientHeight - pointer.clientHeight;
+            if (pointerCoords.top + pointer.clientHeight > v.clientHeight) {
+                pointerCoords.top = v.clientHeight - pointer.clientHeight;
             }
 
             pointer.style.left = pointerCoords.left + 'px';

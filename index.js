@@ -1,6 +1,5 @@
 let tag = document.getElementById("button");
 let tags = document.getElementById("button2");
-
 if ($(".text-slider").length == 1) {
 
     var typed_strings =
@@ -15,30 +14,15 @@ if ($(".text-slider").length == 1) {
     });
 };
 
-
-let votes = () => {
+const vote = () => {
     alert("Thank you for voting!");
 
     removeVotes();
 }
-
+document.getElementById("button").addEventListener("click", vote);
 let removeVotes = () => {
-    document.getElementById("button").removeEventListener("click", votes);
-
-    document.getElementById("button2").removeEventListener("click", votes);
+    document
+        .getElementById("button")
+        .removeEventListener("click", vote);
 }
 
-function changeImage(img) {
-    document.getElementById("button").addEventListener("click", votes);
-
-    tag.src = img.src.replace("/pics/button.png", "/pics/Ebutton.png");
-}
-
-
-function changeImage2(img) {
-    document.getElementById("button2").addEventListener("click", votes);
-
-    tags.src = img.src.replace("/pics/button.png", "/pics/Ebutton.png");
-
-
-}
